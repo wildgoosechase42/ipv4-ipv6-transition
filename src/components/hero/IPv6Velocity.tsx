@@ -120,9 +120,10 @@ export function IPv6Velocity({ progress, mousePosRef }: IPv6VelocityProps) {
   useEffect(() => {
     if (typeof document === 'undefined') return;
     const list: THREE.CanvasTexture[] = [];
-    for (let i = 0; i < PULSE_COUNT; i++) {
+    const count = 8;
+    for (let i = 0; i < count; i++) {
       const text = generateRandomString(i + 1);
-      const color = pulseData[i].color;
+      const color = PALETTE[i % PALETTE.length];
       list.push(createTextTexture(text, color));
     }
     setTextures(list);
@@ -130,7 +131,7 @@ export function IPv6Velocity({ progress, mousePosRef }: IPv6VelocityProps) {
     return () => {
       list.forEach((t) => t.dispose());
     };
-  }, [pulseData]);
+  }, []);
 
   useFrame((state, delta) => {
     const p = progress.get();
@@ -160,7 +161,7 @@ export function IPv6Velocity({ progress, mousePosRef }: IPv6VelocityProps) {
     groupRef.current.position.x = currentShift.current.x;
     groupRef.current.position.y = currentShift.current.y;
 
-    if (pulsesRef.current && textures.length === PULSE_COUNT) {
+    if (pulsesRef.current && textures.length > 0) {
       pulsesRef.current.children.forEach((child, i) => {
         const d = pulseData[i];
         d.offset -= d.speed * delta * flowIntensity;
@@ -204,7 +205,7 @@ export function IPv6Velocity({ progress, mousePosRef }: IPv6VelocityProps) {
         ))}
       </group>
       <group ref={pulsesRef}>
-        {textures.length === PULSE_COUNT &&
+        {textures.length > 0 &&
           pulseData.map((pulse, i) => (
             <mesh
               key={`char-stream-${i}`}
@@ -212,7 +213,7 @@ export function IPv6Velocity({ progress, mousePosRef }: IPv6VelocityProps) {
             >
               <planeGeometry args={[pulse.length, pulse.height]} />
               <meshBasicMaterial
-                map={textures[i]}
+                map={textures[i % textures.length]}
                 transparent
                 opacity={0}
                 blending={THREE.AdditiveBlending}

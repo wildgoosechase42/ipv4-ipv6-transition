@@ -31,8 +31,21 @@ export default function App() {
         y: -((e.clientY / window.innerHeight) * 2 - 1),
       };
     };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        mousePosRef.current = {
+          x: (touch.clientX / window.innerWidth) * 2 - 1,
+          y: -((touch.clientY / window.innerHeight) * 2 - 1),
+        };
+      }
+    };
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -41,8 +54,9 @@ export default function App() {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 80,
-    damping: 25,
+    stiffness: 180,
+    damping: 30,
+    mass: 0.2,
     restDelta: 0.001,
   });
 
@@ -67,7 +81,7 @@ export default function App() {
       style={{ height: '430vh' }}
       className="relative w-full bg-[#030305] selection:bg-indigo-500/30"
     >
-      <div className="sticky top-0 h-screen w-full z-0 pointer-events-none">
+      <div className="sticky top-0 h-screen h-[100dvh] w-full z-0 pointer-events-none">
         {mounted ? (
           <Suspense
             fallback={

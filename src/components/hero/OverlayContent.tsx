@@ -12,7 +12,7 @@ export function OverlayContent({ progress }: OverlayContentProps) {
   const scale = useTransform(progress, [0.7, 0.85], [0.9, 1]);
 
   return (
-    <div className="sticky top-0 h-screen flex items-center justify-center pointer-events-none">
+    <div className="sticky top-0 h-screen h-[100dvh] flex items-center justify-center pointer-events-none">
       <motion.div
         style={{ opacity, scale }}
         className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-8 pb-20 pointer-events-auto"
