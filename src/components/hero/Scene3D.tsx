@@ -34,14 +34,14 @@ export function Scene3D({ progress, canvasRef, mousePosRef }: Scene3DProps) {
         intensity={2}
         angle={0.6}
         penumbra={1}
-        color="#ff9f0a"
+        color="#ff4500"
       />
       <spotLight
         position={[0, -10, 5]}
-        intensity={2.5}
+        intensity={3}
         angle={0.6}
         penumbra={1}
-        color="#2997ff"
+        color="#00ffff"
       />
       <IPv4Mechanical progress={progress} />
       <IPv6Velocity progress={progress} mousePosRef={mousePosRef} />

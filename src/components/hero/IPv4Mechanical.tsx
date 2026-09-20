@@ -75,10 +75,10 @@ export function IPv4Mechanical({ progress }: { progress: MotionValue<number> }) 
       <mesh geometry={gearGeometry}>
         <meshStandardMaterial 
           color="#8b5e34" 
-          roughness={0.15} 
-          metalness={0.9} 
-          emissive="#ff9f0a"
-          emissiveIntensity={0.4}
+          roughness={0.1} 
+          metalness={1} 
+          emissive="#ff4500"
+          emissiveIntensity={0.5}
         />
       </mesh>
       
@@ -90,7 +90,7 @@ export function IPv4Mechanical({ progress }: { progress: MotionValue<number> }) 
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[sparkPositions, 3]} />
         </bufferGeometry>
-        <pointsMaterial size={0.06} color="#ff9f0a" transparent opacity={0.8} />
+        <pointsMaterial size={0.06} color="#ff8800" transparent opacity={0.8} />
       </points>
     </group>
   );

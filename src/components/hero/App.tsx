@@ -71,7 +71,7 @@ export default function App() {
     <div
       ref={containerRef}
       style={{ height: '400vh' }}
-      className="relative w-full bg-[#030305] selection:bg-[#2997ff]/25"
+      className="relative w-full bg-[#030305] selection:bg-indigo-500/30"
     >
       <div className="sticky top-0 h-screen h-[100svh] w-full z-0 pointer-events-none overflow-hidden">
         {mounted ? (
@@ -95,28 +95,28 @@ export default function App() {
         className="absolute inset-0 z-10 pointer-events-none"
         style={{ height: '400vh' }}
       >
-        <section className="h-[140vh] flex flex-col justify-start pt-[18vh] sm:pt-[20vh] px-6 sm:px-12 md:px-20 max-w-2xl">
+        <section className="h-[150vh] flex flex-col justify-start pt-[18vh] sm:pt-[20vh] px-6 sm:px-12 md:px-20 max-w-2xl">
           <motion.div
             style={{ opacity: ipv4Opacity, x: ipv4X }}
-            className="space-y-5"
+            className="space-y-6"
           >
-            <div className="text-[#ff9f0a] font-mono text-xs sm:text-sm font-medium tracking-[0.25em] uppercase">
+            <div className="text-[#ff4500] font-mono text-sm sm:text-base font-semibold tracking-[0.25em] uppercase">
               Status: Exhaustion
             </div>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-white leading-[1.1]">
-              IPv4 is a 32-bit <br className="hidden sm:block" />
-              Mechanical <br className="hidden sm:block" />
+            <h2 className="text-5xl md:text-7xl font-serif text-[#fde047] leading-tight italic">
+              IPv4 is a 32-bit <br />
+              Mechanical <br />
               Ceiling
             </h2>
-            <p className="text-base sm:text-xl text-neutral-400 font-normal leading-relaxed max-w-xl">
+            <p className="text-xl text-[#fde047]/80 font-serif leading-relaxed">
               4.3 Billion nodes spinning at the edge of collapse. Every address is a precious,
               finite resource.
             </p>
-            <div className="flex gap-2 pt-2">
+            <div className="flex gap-2 pt-4">
               {[...Array(4)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-10 h-11 sm:w-12 sm:h-12 border border-white/10 bg-white/[0.04] rounded-lg flex items-center justify-center text-base sm:text-lg font-mono text-[#ff9f0a]"
+                  className="w-10 h-12 border border-[#fde047]/25 bg-[#fde047]/5 flex items-center justify-center text-lg font-mono text-[#ff4500]"
                 >
                   255
                 </div>
@@ -131,12 +131,12 @@ export default function App() {
               opacity: fractureOpacity,
               scale: fractureScale,
             }}
-            className="text-center space-y-3"
+            className="text-center space-y-4"
           >
-            <h3 className="text-5xl sm:text-8xl md:text-[10rem] font-bold text-white uppercase tracking-tighter">
+            <h3 className="text-6xl md:text-[12rem] font-black text-white uppercase tracking-tighter mix-blend-overlay">
               Fracture
             </h3>
-            <p className="text-sm sm:text-xl md:text-2xl font-mono text-neutral-400 tracking-[0.25em] uppercase">
+            <p className="text-lg md:text-2xl font-mono text-zinc-300 tracking-[0.25em] uppercase">
               We had to switch.
             </p>
           </motion.div>
