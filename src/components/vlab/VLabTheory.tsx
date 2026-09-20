@@ -14,7 +14,7 @@ interface VLabTheoryProps {
 
 export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14 text-zinc-300">
+    <div id="theory" className="scroll-mt-20 max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14 text-zinc-300">
       <ScrollReveal className="border-b border-neutral-800 pb-8 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#38BDF8]">
           Theory Reference
