@@ -20,23 +20,33 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
         return;
       }
 
+      const scrollBottom = vh + scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      if (scrollBottom >= docHeight - 180) {
+        setActiveTab('conclusion');
+        return;
+      }
+
+      const conclusionEl = document.getElementById('conclusion');
+      if (conclusionEl) {
+        const conclusionRect = conclusionEl.getBoundingClientRect();
+        if (conclusionRect.top <= vh * 0.65) {
+          setActiveTab('conclusion');
+          return;
+        }
+      }
+
       const postEl = document.getElementById('post-test');
       if (postEl) {
         const postRect = postEl.getBoundingClientRect();
-        if (postRect.top <= vh * 0.75) {
+        if (postRect.top <= vh * 0.65) {
           setActiveTab('post-test');
           return;
         }
       }
 
-      const scrollBottom = vh + scrollY;
-      const docHeight = document.documentElement.scrollHeight;
-      if (scrollBottom >= docHeight - 250) {
-        setActiveTab('post-test');
-        return;
-      }
-
       const sectionIds = [
+        'aim',
         'theory',
         'the-problem',
         'dual-stack',
@@ -44,6 +54,8 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
         'translation',
         'pre-test',
         'simulation',
+        'post-test',
+        'conclusion',
       ];
       const focalY = Math.min(320, vh * 0.4);
       let current = '';
@@ -79,10 +91,12 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
   }, []);
 
   const navItems = [
+    { id: 'aim', label: 'Aim', href: '#aim' },
     { id: 'theory', label: 'Theory', href: '#theory' },
     { id: 'pre-test', label: 'Pre-Test', href: '#pre-test' },
     { id: 'simulation', label: 'Simulation', href: '#simulation' },
     { id: 'post-test', label: 'Post-Test', href: '#post-test' },
+    { id: 'conclusion', label: 'Conclusion', href: '#conclusion' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

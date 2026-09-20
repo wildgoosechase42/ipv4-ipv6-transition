@@ -9,7 +9,7 @@ import TunnelingSim from '@/components/tunneling-sim/TunnelingSim';
 import TranslationSim from '@/components/translation-sim/TranslationSim';
 import { TestModal } from '@/components/vlab/TestModal';
 import { ScrollReveal } from '@/components/vlab/ScrollReveal';
-import { ChevronRight, Check } from 'lucide-react';
+import { ChevronRight, Check, Target, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
   const [activeTest, setActiveTest] = useState<'pre' | 'post' | null>(null);
@@ -36,6 +36,33 @@ export default function Home() {
       <VLabNav onOpenTest={(type) => setActiveTest(type)} />
 
       <main className="relative z-20 bg-[#000000]">
+        <section id="aim" className="scroll-mt-24 max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-2">
+          <ScrollReveal>
+            <div className="border border-neutral-800 bg-[#161617] rounded-[2rem] p-6 sm:p-8 space-y-4 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#2997ff]/5 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16" />
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center text-[#2997ff]">
+                  <Target className="w-4 h-4" />
+                </div>
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#2997ff] font-medium">
+                  Experiment Objective
+                </span>
+              </div>
+              <div>
+                <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white mb-3">
+                  Aim
+                </h2>
+                <div className="p-4 sm:p-5 rounded-2xl border-l-4 border-[#2997ff] bg-black/40 text-base sm:text-lg text-white font-medium leading-relaxed tracking-tight">
+                  To understand different IPv4 to IPv6 Transition Mechanisms
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                Investigate and analyze the key coexistence and migration strategies—Dual-Stack architectures, IPv6-in-IPv4 Tunneling, and NAT64/DNS64 Translation—that enable modern IPv6 adoption across legacy network infrastructure.
+              </p>
+            </div>
+          </ScrollReveal>
+        </section>
+
         <VLabTheory />
 
         <div id="pre-test" className="scroll-mt-24 max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-14">
@@ -115,6 +142,30 @@ export default function Home() {
             </div>
           </ScrollReveal>
         </div>
+
+        <section id="conclusion" className="scroll-mt-24 max-w-4xl mx-auto px-4 sm:px-6 py-8">
+          <ScrollReveal>
+            <div className="border border-neutral-800 bg-[#161617] rounded-[2rem] p-6 sm:p-8 space-y-4 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#30d158]/5 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16" />
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-[#30d158]/10 border border-[#30d158]/20 flex items-center justify-center text-[#30d158]">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#30d158] font-medium">
+                  Lab Outcome
+                </span>
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white mb-3">
+                  Conclusion
+                </h3>
+                <div className="p-4 sm:p-5 rounded-2xl border-l-4 border-[#30d158] bg-black/40 text-sm sm:text-base text-zinc-200 font-medium leading-relaxed">
+                  IPv4 to IPv6 transition is achieved through Dual Stack for parallel coexistence, Tunneling for bridging isolated IPv6 networks across legacy IPv4 transit, and Translation for direct inter-protocol communication.
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
 
         <ScrollReveal className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-24 flex flex-col items-center justify-center text-center">
           <div className="w-10 h-10 rounded-full bg-[#30d158]/10 border border-[#30d158]/25 flex items-center justify-center mb-3 text-[#30d158]">
