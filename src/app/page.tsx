@@ -159,7 +159,7 @@ export default function Home() {
           </ScrollReveal>
         </section>
 
-        <ScrollReveal className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-24 flex flex-col items-center justify-center text-center">
+        <ScrollReveal className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-56 sm:pb-72 flex flex-col items-center justify-center text-center">
           <div className="w-10 h-10 rounded-full bg-[#30d158]/10 border border-[#30d158]/25 flex items-center justify-center mb-3 text-[#30d158]">
             <Check className="w-4 h-4" />
           </div>

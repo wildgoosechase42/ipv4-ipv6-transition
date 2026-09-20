@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ArrowUp } from 'lucide-react';
 
@@ -10,40 +10,19 @@ interface VLabNavProps {
 
 export function VLabNav({ onOpenTest }: VLabNavProps) {
   const [activeTab, setActiveTab] = useState('');
+  const isManualScroll = useRef(false);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isManualScroll.current) return;
+
       const scrollY = window.scrollY;
       const vh = window.innerHeight;
 
       if (scrollY < 120) {
         setActiveTab('');
         return;
-      }
-
-      const scrollBottom = vh + scrollY;
-      const docHeight = document.documentElement.scrollHeight;
-      if (scrollBottom >= docHeight - 180) {
-        setActiveTab('conclusion');
-        return;
-      }
-
-      const conclusionEl = document.getElementById('conclusion');
-      if (conclusionEl) {
-        const conclusionRect = conclusionEl.getBoundingClientRect();
-        if (conclusionRect.top <= vh * 0.65) {
-          setActiveTab('conclusion');
-          return;
-        }
-      }
-
-      const postEl = document.getElementById('post-test');
-      if (postEl) {
-        const postRect = postEl.getBoundingClientRect();
-        if (postRect.top <= vh * 0.65) {
-          setActiveTab('post-test');
-          return;
-        }
       }
 
       const sectionIds = [
@@ -58,7 +37,7 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
         'post-test',
         'conclusion',
       ];
-      const focalY = Math.min(320, vh * 0.4);
+      const focalY = 160;
       let current = '';
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -69,6 +48,19 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
           if (rect.top <= focalY) {
             current = id;
             break;
+          }
+        }
+      }
+
+      // If at the very bottom of the document and conclusion is in view
+      const scrollBottom = vh + scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      if (scrollBottom >= docHeight - 30) {
+        const conclusionEl = document.getElementById('conclusion');
+        if (conclusionEl) {
+          const cRect = conclusionEl.getBoundingClientRect();
+          if (cRect.top <= vh * 0.7) {
+            current = 'conclusion';
           }
         }
       }
@@ -88,7 +80,10 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    };
   }, []);
 
   const navItems = [
@@ -105,18 +100,30 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
     const id = href.replace('#', '');
     const el = document.getElementById(id);
     if (el) {
+      isManualScroll.current = true;
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+      setActiveTab(id);
+      window.history.replaceState(null, '', href);
+
       const yOffset = -85;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
-      setActiveTab(id);
-      window.history.replaceState(null, '', href);
+
+      scrollTimeout.current = setTimeout(() => {
+        isManualScroll.current = false;
+      }, 900);
     }
   };
 
   const scrollToTop = () => {
+    isManualScroll.current = true;
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setActiveTab('');
     window.history.replaceState(null, '', window.location.pathname);
+    scrollTimeout.current = setTimeout(() => {
+      isManualScroll.current = false;
+    }, 900);
   };
 
   return (
