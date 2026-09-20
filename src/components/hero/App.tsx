@@ -108,7 +108,7 @@ export default function App() {
               Mechanical <br />
               Ceiling
             </h2>
-            <p className="text-xl text-[#fde047]/80 font-serif leading-relaxed">
+            <p className="text-2xl sm:text-3xl text-[#fde047] font-serif font-medium leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] max-w-xl">
               4.3 Billion nodes spinning at the edge of collapse. Every address is a precious,
               finite resource.
             </p>
