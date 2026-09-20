@@ -60,9 +60,11 @@ export default function DualStackSim() {
   return (
     <div className="w-full bg-transparent flex items-center justify-center p-4 md:p-8 font-sans antialiased text-white relative selection:bg-neutral-500/30">
       <motion.div 
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-6xl bg-[#0a0a0b] border border-white/5 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-12 shadow-2xl flex flex-col gap-8 relative overflow-hidden"
+        initial={{ opacity: 0, y: 24, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-40px 0px -40px 0px' }}
+        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full max-w-6xl bg-[#161617] border border-neutral-800 rounded-[2rem] p-6 md:p-12 shadow-2xl flex flex-col gap-8 relative overflow-hidden"
       >
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none" 

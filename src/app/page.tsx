@@ -8,6 +8,7 @@ import DualStackSim from '@/components/dualstack-sim/DualStackSim';
 import TunnelingSim from '@/components/tunneling-sim/TunnelingSim';
 import TranslationSim from '@/components/translation-sim/TranslationSim';
 import { TestModal } from '@/components/vlab/TestModal';
+import { ScrollReveal, ScrollParagraph } from '@/components/vlab/ScrollReveal';
 import { ChevronRight, Check } from 'lucide-react';
 
 export default function Home() {
@@ -27,95 +28,105 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#09090b] text-zinc-100 selection:bg-sky-500/30">
+    <div className="relative min-h-screen bg-[#000000] text-zinc-100 selection:bg-[#38BDF8]/30">
       <div id="hero-section" className="relative z-10">
         <HeroApp />
       </div>
 
       <VLabNav onOpenTest={(type) => setActiveTest(type)} />
 
-      <main className="relative z-20 bg-[#09090b]">
+      <main className="relative z-20 bg-[#000000]">
         <VLabTheory />
 
         <div id="pre-test" className="scroll-mt-24 max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-14">
-          <div
-            onClick={() => setActiveTest('pre')}
-            className="w-full p-6 sm:p-8 rounded-2xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/70 hover:border-zinc-700 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group"
-          >
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500 font-medium">
-                Phase 1 &bull; Baseline Assessment
-              </span>
-              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
-                Pre-Test
-              </h3>
-              <p className="text-sm text-zinc-400 max-w-lg leading-relaxed">
-                Assess your foundational understanding of IPv4 address exhaustion and IPv6 transition principles before starting the lab.
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveTest('pre');
-              }}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-zinc-200 active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
+          <ScrollReveal>
+            <div
+              onClick={() => setActiveTest('pre')}
+              className="w-full p-6 sm:p-8 rounded-[2rem] border border-neutral-800 bg-[#161617] hover:border-[#38BDF8]/50 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group shadow-2xl"
             >
-              <span>Take Pre-Test</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#38BDF8] font-medium">
+                  Phase 1 &bull; Baseline Assessment
+                </span>
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white group-hover:text-[#38BDF8] transition-colors">
+                  Pre-Test
+                </h3>
+                <p className="text-sm text-zinc-400 max-w-lg leading-relaxed">
+                  Assess your foundational understanding of IPv4 address exhaustion and IPv6 transition principles before starting the lab.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveTest('pre');
+                }}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-[#38BDF8] hover:text-black active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
+              >
+                <span>Take Pre-Test</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </ScrollReveal>
         </div>
 
         <section id="simulation" className="scroll-mt-20 flex flex-col gap-8 items-center">
-          <div className="max-w-7xl mx-auto px-6 pt-4 pb-2 text-center">
+          <ScrollReveal className="max-w-7xl mx-auto px-6 pt-4 pb-2 text-center space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#38BDF8] block">
+              Interactive Lab
+            </span>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-              Simulation
+              Transition Mechanism Simulations
             </h2>
-          </div>
+            <ScrollParagraph delay={0.1} className="text-sm text-zinc-400 max-w-xl mx-auto">
+              Inspect protocol headers, traffic flows, and encapsulation logic in real time across the three foundational migration mechanisms.
+            </ScrollParagraph>
+          </ScrollReveal>
           <DualStackSim />
           <TunnelingSim />
           <TranslationSim />
         </section>
 
         <div id="post-test" className="scroll-mt-24 max-w-4xl mx-auto px-4 sm:px-6 py-12 pb-16">
-          <div
-            onClick={() => setActiveTest('post')}
-            className="w-full p-6 sm:p-8 rounded-2xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/70 hover:border-zinc-700 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group"
-          >
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500 font-medium">
-                Phase 2 &bull; Verification Assessment
-              </span>
-              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
-                Post-Test
-              </h3>
-              <p className="text-sm text-zinc-400 max-w-lg leading-relaxed">
-                Test your mastery of Dual-Stack prioritization, IPv6-in-IPv4 tunneling encapsulation, and NAT64 stateful translation.
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveTest('post');
-              }}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-zinc-200 active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
+          <ScrollReveal>
+            <div
+              onClick={() => setActiveTest('post')}
+              className="w-full p-6 sm:p-8 rounded-[2rem] border border-neutral-800 bg-[#161617] hover:border-[#22C55E]/50 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group shadow-2xl"
             >
-              <span>Take Post-Test</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#22C55E] font-medium">
+                  Phase 2 &bull; Verification Assessment
+                </span>
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white group-hover:text-[#22C55E] transition-colors">
+                  Post-Test
+                </h3>
+                <p className="text-sm text-zinc-400 max-w-lg leading-relaxed">
+                  Test your mastery of Dual-Stack prioritization, IPv6-in-IPv4 tunneling encapsulation, and NAT64 stateful translation.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveTest('post');
+                }}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-[#22C55E] hover:text-black active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
+              >
+                <span>Take Post-Test</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </ScrollReveal>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-24 flex flex-col items-center justify-center text-center">
-          <div className="w-10 h-10 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center mb-3">
-            <Check className="w-4 h-4 text-white" />
+        <ScrollReveal className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-24 flex flex-col items-center justify-center text-center">
+          <div className="w-10 h-10 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 flex items-center justify-center mb-3 text-[#22C55E]">
+            <Check className="w-4 h-4" />
           </div>
           <p className="text-sm font-medium text-zinc-400 tracking-tight">
             Experiment Complete. IPv6 Transition Mechanisms Mastered.
           </p>
-        </div>
+        </ScrollReveal>
       </main>
 
       <TestModal
