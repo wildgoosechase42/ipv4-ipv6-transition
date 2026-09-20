@@ -10,7 +10,7 @@ const PULSE_COUNT = 64;
 const TRACK_LENGTH = 120;
 
 const ALNUM_CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const PALETTE = ['#ffffff', '#2997ff', '#60a5fa', '#93c5fd', '#f5f5f7'];
+const PALETTE = ['#ffffff', '#fde047', '#d4af37', '#f59e0b', '#fbbf24'];
 
 function pseudoRandom(seed: number): number {
   const x = Math.sin(seed * 12.9898 + 78.233) * 43758.5453;
@@ -195,7 +195,7 @@ export function IPv6Velocity({ progress, mousePosRef }: IPv6VelocityProps) {
           <mesh key={`rail-${i}`} position={[rail.x, rail.y, 0]}>
             <boxGeometry args={[0.015, 0.015, TRACK_LENGTH]} />
             <meshBasicMaterial
-              color="#2997ff"
+              color="#fde047"
               transparent
               opacity={0}
               blending={THREE.AdditiveBlending}
@@ -227,7 +227,7 @@ export function IPv6Velocity({ progress, mousePosRef }: IPv6VelocityProps) {
         <planeGeometry args={[120, 120]} />
         <meshBasicMaterial color="#030305" transparent opacity={0.92} />
       </mesh>
-      <pointLight position={[0, 0, 10]} intensity={1.8} color="#2997ff" distance={40} />
+      <pointLight position={[0, 0, 10]} intensity={2} color="#d4af37" distance={40} />
     </group>
   );
 }
