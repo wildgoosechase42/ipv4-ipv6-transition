@@ -112,7 +112,7 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
             <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
           <div>
-            <span className="text-[11px] sm:text-xs tracking-wider uppercase text-[#38BDF8] font-medium block">
+            <span className="text-[11px] sm:text-xs tracking-wider uppercase text-[#2997ff] font-medium block">
               VLab &bull; Experiment 08
             </span>
             <h1 className="text-sm sm:text-base font-medium tracking-tight text-white hidden sm:block">

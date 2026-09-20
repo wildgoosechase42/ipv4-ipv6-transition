@@ -92,12 +92,12 @@ export default function DualStackSim() {
                   
                   <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${activeProtocol === 'ipv4' ? 'bg-amber-400 shadow-[0_0_8px_#fbbf24]' : 'bg-neutral-700'}`}></div>
-                      <span className="text-[10px] font-bold text-neutral-500 tracking-wider">IPv4</span>
+                      <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${activeProtocol === 'ipv4' ? 'bg-[#ff9f0a]' : 'bg-neutral-700'}`}></div>
+                      <span className="text-[10px] font-medium text-neutral-400 tracking-wider">IPv4</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${activeProtocol === 'ipv6' ? 'bg-blue-400 shadow-[0_0_8px_#60a5fa]' : 'bg-neutral-700'}`}></div>
-                      <span className="text-[10px] font-bold text-neutral-500 tracking-wider">IPv6</span>
+                      <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${activeProtocol === 'ipv6' ? 'bg-[#2997ff]' : 'bg-neutral-700'}`}></div>
+                      <span className="text-[10px] font-medium text-neutral-400 tracking-wider">IPv6</span>
                     </div>
                   </div>
                 </div>

@@ -124,9 +124,9 @@ function SpeedometerGauge({ score, total }: { score: number; total: number }) {
         <svg viewBox="0 0 200 120" className="w-full h-full overflow-visible">
           <defs>
             <linearGradient id="speedoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#ef4444" />
-              <stop offset="50%" stopColor="#eab308" />
-              <stop offset="100%" stopColor="#22c55e" />
+              <stop offset="0%" stopColor="#ff453a" />
+              <stop offset="50%" stopColor="#ff9f0a" />
+              <stop offset="100%" stopColor="#30d158" />
             </linearGradient>
           </defs>
 
@@ -292,9 +292,9 @@ export function TestModal({ isOpen, onClose, type }: TestModalProps) {
 
                   if (hasAnswered) {
                     if (isCorrect) {
-                      stateStyles = 'border-emerald-600/70 bg-emerald-950/30 text-emerald-200 font-medium cursor-default';
+                      stateStyles = 'border-[#30d158]/50 bg-[#30d158]/10 text-[#30d158] font-medium cursor-default';
                     } else if (isUserChoice) {
-                      stateStyles = 'border-rose-600/70 bg-rose-950/30 text-rose-200 font-medium cursor-default';
+                      stateStyles = 'border-[#ff453a]/50 bg-[#ff453a]/10 text-[#ff453a] font-medium cursor-default';
                     } else {
                       stateStyles = 'border-zinc-800/50 bg-zinc-950/20 text-zinc-500 opacity-40 cursor-default';
                     }
@@ -315,10 +315,10 @@ export function TestModal({ isOpen, onClose, type }: TestModalProps) {
                       </div>
 
                       {hasAnswered && isCorrect && (
-                        <Check className="w-4 h-4 text-emerald-400 shrink-0 ml-2" />
+                        <Check className="w-4 h-4 text-[#30d158] shrink-0 ml-2" />
                       )}
                       {hasAnswered && isUserChoice && !isCorrect && (
-                        <X className="w-4 h-4 text-rose-400 shrink-0 ml-2" />
+                        <X className="w-4 h-4 text-[#ff453a] shrink-0 ml-2" />
                       )}
                     </button>
                   );

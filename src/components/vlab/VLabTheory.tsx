@@ -16,7 +16,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
   return (
     <div id="theory" className="scroll-mt-20 max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-14 text-zinc-300">
       <ScrollReveal className="border-b border-neutral-800 pb-8 space-y-2">
-        <span className="font-mono text-xs uppercase tracking-wider text-[#38BDF8]">
+        <span className="font-mono text-xs uppercase tracking-wider text-[#2997ff]">
           Theory Reference
         </span>
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
@@ -30,7 +30,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
             <ScrollStagger className="space-y-4">
               <ScrollStaggerItem>
                 <p className="text-sm sm:text-base leading-relaxed text-zinc-200">
-                  IPv4 uses <span className="text-[#D97706] font-semibold">32-bit</span> addresses, giving about <span className="text-white font-medium">4.3 billion</span> addresses.
+                  IPv4 uses <span className="text-[#ff9f0a] font-semibold">32-bit</span> addresses, giving about <span className="text-white font-medium">4.3 billion</span> addresses.
                 </p>
               </ScrollStaggerItem>
 
@@ -42,12 +42,12 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
 
               <ScrollStaggerItem>
                 <p className="text-sm sm:text-base leading-relaxed text-zinc-200">
-                  IPv6 uses <span className="text-[#38BDF8] font-semibold">128-bit</span> addresses, providing a virtually unlimited address space of 340 undecillion addresses.
+                  IPv6 uses <span className="text-[#2997ff] font-semibold">128-bit</span> addresses, providing a virtually unlimited address space of 340 undecillion addresses.
                 </p>
               </ScrollStaggerItem>
             </ScrollStagger>
 
-            <ScrollParagraph delay={0.2} className="p-4 rounded-2xl border-l-2 border-[#38BDF8] bg-black/40 text-sm leading-relaxed text-zinc-200">
+            <ScrollParagraph delay={0.2} className="p-4 rounded-2xl border-l-2 border-[#2997ff] bg-black/40 text-sm leading-relaxed text-zinc-200">
               The problem is: we cannot switch the entire Internet from IPv4 to IPv6 at once. So, IPv4 and IPv6 need to coexist during the transition.
             </ScrollParagraph>
 
@@ -59,7 +59,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
                 <ScrollStaggerItem>
                   <a
                     href="#dual-stack"
-                    className="block p-3.5 rounded-[1.25rem] border border-neutral-800 bg-black/50 hover:bg-neutral-800/40 hover:border-[#38BDF8]/40 transition-all text-xs font-medium text-zinc-200 text-center"
+                    className="block p-3.5 rounded-[1.25rem] border border-neutral-800 bg-black/50 hover:bg-neutral-800/40 hover:border-[#2997ff]/40 transition-all text-xs font-medium text-zinc-200 text-center"
                   >
                     1. Dual Stack
                   </a>
@@ -67,7 +67,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
                 <ScrollStaggerItem>
                   <a
                     href="#tunneling"
-                    className="block p-3.5 rounded-[1.25rem] border border-neutral-800 bg-black/50 hover:bg-neutral-800/40 hover:border-[#D97706]/40 transition-all text-xs font-medium text-zinc-200 text-center"
+                    className="block p-3.5 rounded-[1.25rem] border border-neutral-800 bg-black/50 hover:bg-neutral-800/40 hover:border-[#ff9f0a]/40 transition-all text-xs font-medium text-zinc-200 text-center"
                   >
                     2. Tunneling
                   </a>
@@ -75,7 +75,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
                 <ScrollStaggerItem>
                   <a
                     href="#translation"
-                    className="block p-3.5 rounded-[1.25rem] border border-neutral-800 bg-black/50 hover:bg-neutral-800/40 hover:border-[#22C55E]/40 transition-all text-xs font-medium text-zinc-200 text-center"
+                    className="block p-3.5 rounded-[1.25rem] border border-neutral-800 bg-black/50 hover:bg-neutral-800/40 hover:border-[#2997ff]/40 transition-all text-xs font-medium text-zinc-200 text-center"
                   >
                     3. Translation
                   </a>
@@ -90,7 +90,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
         <ScrollReveal>
           <div className="border border-neutral-800 bg-[#161617] rounded-[2rem] p-6 sm:p-8 space-y-6 shadow-2xl">
             <div className="border-b border-neutral-800/80 pb-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#38BDF8] block mb-1 font-medium">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#2997ff] block mb-1 font-medium">
                 Mechanism 01
               </span>
               <h3 className="text-xl font-semibold text-white tracking-tight">
@@ -120,10 +120,10 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
                   </p>
                   <div className="font-mono text-xs space-y-1.5 pl-3 border-l-2 border-neutral-700 text-zinc-200">
                     <div>
-                      IPv4 address: <span className="text-[#D97706] font-semibold">192.168.1.10</span>
+                      IPv4 address: <span className="text-[#ff9f0a] font-semibold">192.168.1.10</span>
                     </div>
                     <div>
-                      IPv6 address: <span className="text-[#38BDF8] font-semibold">2001:db8::10</span>
+                      IPv6 address: <span className="text-[#2997ff] font-semibold">2001:db8::10</span>
                     </div>
                   </div>
                   <p className="text-xs sm:text-sm leading-relaxed text-zinc-300">
@@ -147,7 +147,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
             <ScrollStagger staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
               <ScrollStaggerItem>
                 <div className="p-5 rounded-[2rem] border border-neutral-800 bg-black/40 space-y-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#22C55E] block font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#30d158] block font-semibold">
                     Advantages:
                   </span>
                   <ul className="text-xs text-zinc-300 space-y-1.5 pl-3 list-disc">
@@ -160,7 +160,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
 
               <ScrollStaggerItem>
                 <div className="p-5 rounded-[2rem] border border-neutral-800 bg-black/40 space-y-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#D97706] block font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#ff9f0a] block font-semibold">
                     Disadvantages:
                   </span>
                   <ul className="text-xs text-zinc-300 space-y-1.5 pl-3 list-disc">
@@ -179,7 +179,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
         <ScrollReveal>
           <div className="border border-neutral-800 bg-[#161617] rounded-[2rem] p-6 sm:p-8 space-y-6 shadow-2xl">
             <div className="border-b border-neutral-800/80 pb-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#D97706] block mb-1 font-medium">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#ff9f0a] block mb-1 font-medium">
                 Mechanism 02
               </span>
               <h3 className="text-xl font-semibold text-white tracking-tight">
@@ -225,7 +225,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
             <ScrollStagger staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
               <ScrollStaggerItem>
                 <div className="p-5 rounded-[2rem] border border-neutral-800 bg-black/40 space-y-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#22C55E] block font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#30d158] block font-semibold">
                     Advantages:
                   </span>
                   <ul className="text-xs text-zinc-300 space-y-1.5 pl-3 list-disc">
@@ -238,7 +238,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
 
               <ScrollStaggerItem>
                 <div className="p-5 rounded-[2rem] border border-neutral-800 bg-black/40 space-y-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#D97706] block font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#ff9f0a] block font-semibold">
                     Disadvantages:
                   </span>
                   <ul className="text-xs text-zinc-300 space-y-1.5 pl-3 list-disc">
@@ -257,7 +257,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
         <ScrollReveal>
           <div className="border border-neutral-800 bg-[#161617] rounded-[2rem] p-6 sm:p-8 space-y-6 shadow-2xl">
             <div className="border-b border-neutral-800/80 pb-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#22C55E] block mb-1 font-medium">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#2997ff] block mb-1 font-medium">
                 Mechanism 03
               </span>
               <h3 className="text-xl font-semibold text-white tracking-tight">
@@ -283,7 +283,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
                     How it works:
                   </span>
                   <p className="text-xs sm:text-sm leading-relaxed text-zinc-300">
-                    DNS64 synthesizes an IPv6 address using the Well-Known Prefix <span className="font-mono text-[#38BDF8]">64:ff9b::/96</span> embedded with the target IPv4 address. The NAT64 gateway terminates the IPv6 session, replaces headers with an IPv4 header, and tracks state in its translation table for return packets.
+                    DNS64 synthesizes an IPv6 address using the Well-Known Prefix <span className="font-mono text-[#2997ff]">64:ff9b::/96</span> embedded with the target IPv4 address. The NAT64 gateway terminates the IPv6 session, replaces headers with an IPv4 header, and tracks state in its translation table for return packets.
                   </p>
                   <div className="text-xs font-mono text-zinc-300 pt-1">
                     Enables modern single-stack IPv6 datacenters to retire internal IPv4 while maintaining global reach.
@@ -295,7 +295,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
             <ScrollStagger staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
               <ScrollStaggerItem>
                 <div className="p-5 rounded-[2rem] border border-neutral-800 bg-black/40 space-y-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#22C55E] block font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#30d158] block font-semibold">
                     Advantages:
                   </span>
                   <ul className="text-xs text-zinc-300 space-y-1.5 pl-3 list-disc">
@@ -308,7 +308,7 @@ export function VLabTheory({ onOpenTest }: VLabTheoryProps) {
 
               <ScrollStaggerItem>
                 <div className="p-5 rounded-[2rem] border border-neutral-800 bg-black/40 space-y-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#D97706] block font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#ff9f0a] block font-semibold">
                     Disadvantages:
                   </span>
                   <ul className="text-xs text-zinc-300 space-y-1.5 pl-3 list-disc">

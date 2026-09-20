@@ -19,7 +19,7 @@ export default function TunnelingSim() {
   };
 
   return (
-    <div className="w-full bg-transparent flex items-center justify-center p-4 md:p-8 font-sans antialiased text-white relative selection:bg-[#38BDF8]/30">
+    <div className="w-full bg-transparent flex items-center justify-center p-4 md:p-8 font-sans antialiased text-white relative selection:bg-[#2997ff]/25">
       <motion.div 
         initial={{ opacity: 0, y: 24, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -31,12 +31,12 @@ export default function TunnelingSim() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 relative z-10">
           <div>
-            <h1 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-100 uppercase italic">Tunneling Lab</h1>
+            <h1 className="text-xl md:text-2xl font-semibold tracking-tight text-white">Tunneling Lab</h1>
           </div>
           
-          <div className="flex items-center gap-2 font-mono text-[10px] text-neutral-600 uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            System Live: Protocol 41 Active
+          <div className="flex items-center gap-2 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#30d158]" />
+            Protocol 41 Active
           </div>
         </div>
 
@@ -45,25 +45,25 @@ export default function TunnelingSim() {
             <button 
               key={s} 
               onClick={() => setCurrentIdx(i)}
-              className={`group flex flex-col gap-2 transition-all duration-300 ${i <= currentIdx ? 'opacity-100' : 'opacity-30 hover:opacity-50'}`}
+              className={`group flex flex-col gap-2 transition-all duration-300 cursor-pointer ${i <= currentIdx ? 'opacity-100' : 'opacity-30 hover:opacity-50'}`}
             >
-              <div className={`h-1 w-full rounded-full transition-all duration-500 ${i <= currentIdx ? 'bg-indigo-500 shadow-[0_0_10px_#6366f166]' : 'bg-neutral-800'}`} />
+              <div className={`h-1 w-full rounded-full transition-all duration-500 ${i <= currentIdx ? 'bg-[#2997ff]' : 'bg-neutral-800'}`} />
               <div className="flex items-center justify-between">
-                <span className={`text-[9px] font-black tracking-tighter uppercase transition-colors ${i === currentIdx ? 'text-indigo-400' : 'text-neutral-500'}`}>
+                <span className={`text-[9px] font-semibold tracking-wider uppercase transition-colors ${i === currentIdx ? 'text-[#2997ff]' : 'text-neutral-500'}`}>
                   {s}
                 </span>
-                {i < currentIdx && <span className="material-symbols-outlined text-[12px] text-emerald-500">done_all</span>}
+                {i < currentIdx && <span className="material-symbols-outlined text-[12px] text-[#30d158]">done_all</span>}
               </div>
             </button>
           ))}
         </div>
 
         <div className="relative h-64 md:h-80 bg-black rounded-2xl md:rounded-[2rem] border border-white/5 flex flex-col justify-center overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,30,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none z-20 opacity-20" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,30,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none z-20 opacity-10" />
           
           <div className="grid grid-cols-4 h-full items-center relative z-10">
             <div className="absolute top-1/2 left-[12.5%] right-[12.5%] h-px bg-white/5 -translate-y-1/2 -z-10" />
-            <div className="absolute top-1/2 left-[37.5%] right-[37.5%] h-px border-t border-dashed border-amber-500/30 -translate-y-1/2 -z-10" />
+            <div className="absolute top-1/2 left-[37.5%] right-[37.5%] h-px border-t border-dashed border-[#ff9f0a]/30 -translate-y-1/2 -z-10" />
             
             <Node label="Host A" icon="desktop_windows" color="indigo" active={currentIdx === 0} />
             <Node label="Gateway A" icon="router" color="amber" active={currentIdx === 1} />
@@ -74,9 +74,9 @@ export default function TunnelingSim() {
           </div>
 
           <div className="absolute bottom-6 left-0 right-0 flex justify-around pointer-events-none px-4">
-            <span className="text-[8px] font-mono text-neutral-700 tracking-[0.3em] uppercase">Local Domain (Site A)</span>
-            <span className="text-[8px] font-mono text-amber-600/50 tracking-[0.3em] uppercase">IPv4 Transit Infrastructure</span>
-            <span className="text-[8px] font-mono text-neutral-700 tracking-[0.3em] uppercase">Local Domain (Site B)</span>
+            <span className="text-[8px] font-mono text-neutral-600 tracking-[0.25em] uppercase">Local Domain (Site A)</span>
+            <span className="text-[8px] font-mono text-[#ff9f0a]/60 tracking-[0.25em] uppercase">IPv4 Transit Infrastructure</span>
+            <span className="text-[8px] font-mono text-neutral-600 tracking-[0.25em] uppercase">Local Domain (Site B)</span>
           </div>
         </div>
 
@@ -114,8 +114,8 @@ export default function TunnelingSim() {
 
 function Node({ label, icon, color, active }: { label: string, icon: string, color: 'indigo' | 'amber', active: boolean }) {
   const colorMap = {
-    indigo: { primary: '#6366f1', bg: 'rgba(99, 102, 241, 0.1)', border: 'rgba(99, 102, 241, 0.2)' },
-    amber: { primary: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)', border: 'rgba(245, 158, 11, 0.2)' }
+    indigo: { primary: '#2997ff', bg: 'rgba(41, 151, 255, 0.08)', border: 'rgba(41, 151, 255, 0.3)' },
+    amber: { primary: '#ff9f0a', bg: 'rgba(255, 159, 10, 0.08)', border: 'rgba(255, 159, 10, 0.3)' }
   };
   const theme = colorMap[color];
 
@@ -124,18 +124,18 @@ function Node({ label, icon, color, active }: { label: string, icon: string, col
       <motion.div 
         animate={{ 
           scale: active ? 1.05 : 1,
-          borderColor: active ? theme.primary : 'rgba(255,255,255,0.05)',
+          borderColor: active ? theme.primary : 'rgba(255,255,255,0.06)',
           backgroundColor: active ? theme.bg : 'rgba(0,0,0,0.2)'
         }}
-        className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl border-2 flex items-center justify-center transition-all duration-500 group relative"
+        className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl border flex items-center justify-center transition-all duration-500 group relative"
       >
-        <span className={`material-symbols-outlined text-2xl md:text-3xl transition-colors duration-500 ${active ? 'opacity-100' : 'opacity-20'}`} style={{ color: active ? theme.primary : '#fff' }}>
+        <span className={`material-symbols-outlined text-2xl md:text-3xl transition-colors duration-500 ${active ? 'opacity-100' : 'opacity-30'}`} style={{ color: active ? theme.primary : '#fff' }}>
           {icon}
         </span>
         {active && (
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: [0, 0.3, 0], scale: [0.8, 1.4, 1.6] }}
+            animate={{ opacity: [0, 0.2, 0], scale: [0.8, 1.3, 1.4] }}
             transition={{ repeat: Infinity, duration: 2 }}
             className="absolute inset-0 rounded-2xl md:rounded-3xl pointer-events-none"
             style={{ backgroundColor: theme.primary }}
@@ -143,16 +143,16 @@ function Node({ label, icon, color, active }: { label: string, icon: string, col
         )}
       </motion.div>
       <div className="flex flex-col items-center gap-1">
-        <span className={`text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors ${active ? 'text-white' : 'text-neutral-700'}`}>
+        <span className={`text-[9px] md:text-[10px] font-semibold uppercase tracking-widest transition-colors ${active ? 'text-white' : 'text-neutral-500'}`}>
           {label}
         </span>
         {active && (
           <motion.span 
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[7px] font-mono text-neutral-500 uppercase"
+            className="text-[7px] font-mono text-neutral-400 uppercase tracking-wider"
           >
-            ACTIVE_NODE
+            Active Node
           </motion.span>
         )}
       </div>
@@ -178,14 +178,14 @@ function Packet({ index }: { index: number }) {
               initial={{ scale: 0.5, opacity: 0, rotateY: 90 }}
               animate={{ scale: 1, opacity: 1, rotateY: 0 }}
               exit={{ scale: 1.2, opacity: 0, rotateY: -90 }}
-              className="absolute inset-0 bg-amber-500/10 border-2 border-amber-500/60 rounded-2xl md:rounded-3xl shadow-[0_0_40px_rgba(245,158,11,0.2)] flex flex-col items-center justify-between py-2 backdrop-blur-sm"
+              className="absolute inset-0 bg-[#ff9f0a]/10 border border-[#ff9f0a]/50 rounded-2xl md:rounded-3xl shadow-lg flex flex-col items-center justify-between py-2 backdrop-blur-sm"
             >
-               <div className="w-full px-2 flex justify-between items-center">
-                 <span className="text-[6px] font-black text-amber-500/80 uppercase">IPv4_HDR</span>
-                 <div className="w-2 h-0.5 bg-amber-500/40 rounded-full" />
+               <div className="w-full px-2.5 flex justify-between items-center">
+                 <span className="text-[7px] font-semibold text-[#ff9f0a] uppercase">IPv4 Header</span>
+                 <div className="w-2 h-0.5 bg-[#ff9f0a]/40 rounded-full" />
                </div>
                <div className="flex-1" />
-               <span className="text-[6px] font-black text-amber-500/80 uppercase tracking-widest">PROTO_41</span>
+               <span className="text-[7px] font-mono font-medium text-[#ff9f0a] uppercase tracking-wider">Proto 41</span>
             </motion.div>
           )}
         </AnimatePresence>
@@ -197,7 +197,7 @@ function Packet({ index }: { index: number }) {
             height: isEnveloped ? '36px' : '64px',
             scale: 1,
           }}
-          className="bg-indigo-600 border-2 border-indigo-400 rounded-xl md:rounded-2xl flex flex-col items-center justify-center shadow-xl relative z-10 overflow-hidden"
+          className="bg-[#2997ff] border border-[#2997ff]/80 rounded-xl md:rounded-2xl flex flex-col items-center justify-center shadow-lg relative z-10 overflow-hidden"
         >
           <motion.span 
             animate={{ scale: isEnveloped ? 0.7 : 1 }}
@@ -209,7 +209,7 @@ function Packet({ index }: { index: number }) {
             <motion.span 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-[8px] font-black text-white uppercase tracking-tighter mt-1"
+              className="text-[8px] font-semibold text-white uppercase tracking-tight mt-1"
             >
               IPv6 Data
             </motion.span>
@@ -223,9 +223,9 @@ function Packet({ index }: { index: number }) {
         </motion.div>
 
         <motion.div 
-          animate={{ opacity: [0.2, 0.4, 0.2] }}
+          animate={{ opacity: [0.15, 0.3, 0.15] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className={`absolute inset-0 blur-3xl -z-10 rounded-full ${isEnveloped ? 'bg-amber-500/30' : 'bg-indigo-500/30'}`} 
+          className={`absolute inset-0 blur-2xl -z-10 rounded-full ${isEnveloped ? 'bg-[#ff9f0a]/15' : 'bg-[#2997ff]/15'}`} 
         />
       </div>
     </motion.div>

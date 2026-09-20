@@ -19,19 +19,19 @@ export function ConclusionSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <div className="p-6 rounded bg-[#111111] border border-white/[0.08] space-y-4">
+        <div className="p-6 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded bg-[#D97706]/10 border border-[#D97706]/20 flex items-center justify-center text-[#D97706]">
+            <div className="w-8 h-8 rounded-xl bg-[#ff9f0a]/10 border border-[#ff9f0a]/20 flex items-center justify-center text-[#ff9f0a]">
               <Terminal className="w-4 h-4" />
             </div>
-            <h3 className="text-sm font-mono font-bold uppercase tracking-wider text-[#EDEDED]">
+            <h3 className="text-sm font-semibold tracking-wide text-[#EDEDED]">
               The Current Reality: Dual-Stack Exhaustion
             </h3>
           </div>
           <p className="text-xs text-[#8A8A8E] leading-relaxed">
             Dual-stack has been the pragmatic bridge for the past two decades. However, dual-stack still requires an IPv4 address for every public host, doubling operational telemetry, security surface, and routing tables. As IPv4 market prices exceeded $50 per IP, maintaining dual-stack has transitioned from a convenience into an escalating financial penalty.
           </p>
-          <div className="p-3 rounded bg-[#080808] border border-white/[0.06] text-[11px] font-mono text-[#8A8A8E] space-y-1">
+          <div className="p-3 rounded-xl bg-[#080808] border border-white/[0.06] text-[11px] font-mono text-[#8A8A8E] space-y-1">
             <div className="text-white font-medium">Overhead Vectors:</div>
             <div>&bull; Double routing memory allocation in core BGP tables (TCAM).</div>
             <div>&bull; Fragmented firewall policies across IPv4 and IPv6 rulesets.</div>
@@ -39,19 +39,19 @@ export function ConclusionSection() {
           </div>
         </div>
 
-        <div className="p-6 rounded bg-[#111111] border border-white/[0.08] space-y-4">
+        <div className="p-6 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8]">
+            <div className="w-8 h-8 rounded-xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center text-[#2997ff]">
               <Network className="w-4 h-4" />
             </div>
-            <h3 className="text-sm font-mono font-bold uppercase tracking-wider text-[#EDEDED]">
+            <h3 className="text-sm font-semibold tracking-wide text-[#EDEDED]">
               The Modern Paradigm: Pure Single-Stack IPv6
             </h3>
           </div>
           <p className="text-xs text-[#8A8A8E] leading-relaxed">
             Leading hyperscalers (Meta, Microsoft Azure) and top tier mobile carriers (T-Mobile US, Reliance Jio) have transitioned their internal fabric entirely to pure IPv6. By deploying IPv6-only data center underlays with NAT64/DNS64 and 464XLAT at the edges, they have eradicated internal IPv4 addresses completely, unlocking limitless horizontal scalability.
           </p>
-          <div className="p-3 rounded bg-[#080808] border border-white/[0.06] text-[11px] font-mono text-[#8A8A8E] space-y-1">
+          <div className="p-3 rounded-xl bg-[#080808] border border-white/[0.06] text-[11px] font-mono text-[#8A8A8E] space-y-1">
             <div className="text-white font-medium">Production Metrics:</div>
             <div>&bull; T-Mobile US mobile traffic: &gt;90% pure IPv6.</div>
             <div>&bull; Meta internal data center fabric: 100% IPv6-only.</div>
@@ -60,25 +60,25 @@ export function ConclusionSection() {
         </div>
       </div>
 
-      <div className="p-6 rounded bg-[#111111] border border-white/[0.08] space-y-4">
-        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#EDEDED]">
+      <div className="p-6 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-4">
+        <h4 className="text-xs font-semibold tracking-wider uppercase text-[#EDEDED]">
           Core Takeaway Matrix
         </h4>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
-          <div className="p-4 rounded bg-[#080808] border border-white/[0.04] space-y-2">
-            <span className="text-[#38BDF8] font-bold block">1. Dual-Stack (RFC 4213)</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div className="p-4 rounded-xl bg-[#080808] border border-white/[0.04] space-y-2">
+            <span className="text-[#2997ff] font-semibold block">1. Dual-Stack (RFC 4213)</span>
             <p className="text-[#8A8A8E] text-[11px] leading-relaxed">
               Best for client endpoints and edge servers during initial transition. Both stacks run in parallel; requires scarce public IPv4 addresses.
             </p>
           </div>
-          <div className="p-4 rounded bg-[#080808] border border-white/[0.04] space-y-2">
-            <span className="text-[#D97706] font-bold block">2. Tunneling (Protocol 41)</span>
+          <div className="p-4 rounded-xl bg-[#080808] border border-white/[0.04] space-y-2">
+            <span className="text-[#ff9f0a] font-semibold block">2. Tunneling (Protocol 41)</span>
             <p className="text-[#8A8A8E] text-[11px] leading-relaxed">
               Connects isolated IPv6 sites across IPv4 backbones. +20 byte header overhead; requires careful Path MTU Discovery configuration.
             </p>
           </div>
-          <div className="p-4 rounded bg-[#080808] border border-white/[0.04] space-y-2">
-            <span className="text-[#22C55E] font-bold block">3. NAT64 / DNS64 (RFC 6146)</span>
+          <div className="p-4 rounded-xl bg-[#080808] border border-white/[0.04] space-y-2">
+            <span className="text-[#30d158] font-semibold block">3. NAT64 / DNS64 (RFC 6146)</span>
             <p className="text-[#8A8A8E] text-[11px] leading-relaxed">
               The endgame architecture. Enables pure IPv6 networks to access legacy IPv4 destinations via stateful gateway translation.
             </p>

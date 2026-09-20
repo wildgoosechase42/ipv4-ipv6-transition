@@ -17,37 +17,34 @@ export function Scene3D({ progress, canvasRef, mousePosRef }: Scene3DProps) {
   return (
     <Canvas
       ref={canvasRef}
-      gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true }}
-      dpr={[1, 2]}
+      gl={{ 
+        antialias: true, 
+        alpha: true, 
+        powerPreference: 'high-performance' 
+      }}
+      dpr={[1, 1.5]}
       className="w-full h-full"
     >
       <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
 
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={1} color="#ffffff" />
       <spotLight
         position={[0, 10, 0]}
         intensity={2}
         angle={0.6}
         penumbra={1}
-        color="#ff4500"
+        color="#ff9f0a"
       />
       <spotLight
         position={[0, -10, 5]}
-        intensity={3}
+        intensity={2.5}
         angle={0.6}
         penumbra={1}
-        color="#00ffff"
+        color="#2997ff"
       />
       <IPv4Mechanical progress={progress} />
       <IPv6Velocity progress={progress} mousePosRef={mousePosRef} />
-      <ContactShadows
-        position={[0, -4.5, 0]}
-        opacity={0.4}
-        scale={20}
-        blur={2}
-        far={4.5}
-      />
     </Canvas>
   );
 }

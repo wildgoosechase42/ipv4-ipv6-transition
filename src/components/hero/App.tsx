@@ -25,26 +25,21 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    // Only listen to mouse movements on devices with a fine pointer (mouse/trackpad).
+    // Do not attach touchmove on touch screens, which causes violent tilting and camera shaking during mobile scroll.
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (!isFinePointer) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       mousePosRef.current = {
         x: (e.clientX / window.innerWidth) * 2 - 1,
         y: -((e.clientY / window.innerHeight) * 2 - 1),
       };
     };
-    const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        mousePosRef.current = {
-          x: (touch.clientX / window.innerWidth) * 2 - 1,
-          y: -((touch.clientY / window.innerHeight) * 2 - 1),
-        };
-      }
-    };
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);
 
@@ -53,11 +48,12 @@ export default function App() {
     offset: ['start start', 'end end'],
   });
 
+  // Tighter, responsive spring that tracks touch momentum without lag or oscillation
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 180,
-    damping: 30,
-    mass: 0.2,
-    restDelta: 0.001,
+    stiffness: 260,
+    damping: 38,
+    mass: 0.15,
+    restDelta: 0.0005,
   });
 
   const handleCapture = useCallback(async () => {
@@ -65,23 +61,19 @@ export default function App() {
     return canvasRef.current.toDataURL('image/png');
   }, []);
 
-  const ipv4Opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
-  const ipv4X = useTransform(scrollYProgress, [0, 0.25], [0, -50]);
-  const fractureOpacity = useTransform(scrollYProgress, [0.35, 0.45, 0.55], [0, 1, 0]);
-  const fractureScale = useTransform(scrollYProgress, [0.35, 0.55], [0.8, 1.5]);
-  const fractureFilter = useTransform(
-    scrollYProgress,
-    [0.35, 0.45, 0.55],
-    ['blur(10px)', 'blur(0px)', 'blur(20px)']
-  );
+  // Use smoothProgress for overlay transforms to stay in 1:1 sync with the 3D scene
+  const ipv4Opacity = useTransform(smoothProgress, [0, 0.22], [1, 0]);
+  const ipv4X = useTransform(smoothProgress, [0, 0.22], [0, -30]);
+  const fractureOpacity = useTransform(smoothProgress, [0.35, 0.46, 0.56], [0, 1, 0]);
+  const fractureScale = useTransform(smoothProgress, [0.35, 0.56], [0.85, 1.25]);
 
   return (
     <div
       ref={containerRef}
-      style={{ height: '430vh' }}
-      className="relative w-full bg-[#030305] selection:bg-indigo-500/30"
+      style={{ height: '400vh' }}
+      className="relative w-full bg-[#030305] selection:bg-[#2997ff]/25"
     >
-      <div className="sticky top-0 h-screen h-[100dvh] w-full z-0 pointer-events-none">
+      <div className="sticky top-0 h-screen h-[100svh] w-full z-0 pointer-events-none overflow-hidden">
         {mounted ? (
           <Suspense
             fallback={
@@ -101,30 +93,30 @@ export default function App() {
 
       <div
         className="absolute inset-0 z-10 pointer-events-none"
-        style={{ height: '430vh' }}
+        style={{ height: '400vh' }}
       >
-        <section className="h-[150vh] flex flex-col justify-start pt-[20vh] px-8 md:px-20 max-w-2xl">
+        <section className="h-[140vh] flex flex-col justify-start pt-[18vh] sm:pt-[20vh] px-6 sm:px-12 md:px-20 max-w-2xl">
           <motion.div
             style={{ opacity: ipv4Opacity, x: ipv4X }}
-            className="space-y-6"
+            className="space-y-5"
           >
-            <div className="text-[#ff4500] font-mono text-sm sm:text-base font-semibold tracking-[0.25em] uppercase">
+            <div className="text-[#ff9f0a] font-mono text-xs sm:text-sm font-medium tracking-[0.25em] uppercase">
               Status: Exhaustion
             </div>
-            <h2 className="text-5xl md:text-7xl font-serif text-[#fde047] leading-tight italic">
-              IPv4 is a 32-bit <br />
-              Mechanical <br />
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-white leading-[1.1]">
+              IPv4 is a 32-bit <br className="hidden sm:block" />
+              Mechanical <br className="hidden sm:block" />
               Ceiling
             </h2>
-            <p className="text-xl text-[#fde047]/80 font-serif leading-relaxed">
+            <p className="text-base sm:text-xl text-neutral-400 font-normal leading-relaxed max-w-xl">
               4.3 Billion nodes spinning at the edge of collapse. Every address is a precious,
               finite resource.
             </p>
-            <div className="flex gap-2 pt-4">
+            <div className="flex gap-2 pt-2">
               {[...Array(4)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-10 h-12 border border-[#fde047]/25 bg-[#fde047]/5 flex items-center justify-center text-lg font-mono text-[#ff4500]"
+                  className="w-10 h-11 sm:w-12 sm:h-12 border border-white/10 bg-white/[0.04] rounded-lg flex items-center justify-center text-base sm:text-lg font-mono text-[#ff9f0a]"
                 >
                   255
                 </div>
@@ -133,26 +125,25 @@ export default function App() {
           </motion.div>
         </section>
 
-        <section className="h-[80vh] flex items-center justify-center">
+        <section className="h-[70vh] flex items-center justify-center px-4">
           <motion.div
             style={{
               opacity: fractureOpacity,
               scale: fractureScale,
-              filter: fractureFilter,
             }}
-            className="text-center space-y-4"
+            className="text-center space-y-3"
           >
-            <h3 className="text-6xl md:text-[12rem] font-black text-white uppercase tracking-tighter mix-blend-overlay">
+            <h3 className="text-5xl sm:text-8xl md:text-[10rem] font-bold text-white uppercase tracking-tighter">
               Fracture
             </h3>
-            <p className="text-lg md:text-2xl font-mono text-zinc-300 tracking-[0.25em] uppercase">
+            <p className="text-sm sm:text-xl md:text-2xl font-mono text-neutral-400 tracking-[0.25em] uppercase">
               We had to switch.
             </p>
           </motion.div>
         </section>
 
-        <section className="h-[200vh] pt-[10vh] px-8 md:px-20">
-          <OverlayContent progress={scrollYProgress} onCapture={handleCapture} />
+        <section className="h-[190vh] pt-[10vh] px-6 sm:px-12 md:px-20">
+          <OverlayContent progress={smoothProgress} onCapture={handleCapture} />
         </section>
       </div>
 

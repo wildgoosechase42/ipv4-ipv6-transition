@@ -38,7 +38,7 @@ export default function TranslationSim() {
   };
 
   return (
-    <div className="w-full bg-transparent flex items-center justify-center p-4 md:p-8 font-sans antialiased text-white relative selection:bg-[#38BDF8]/30">
+    <div className="w-full bg-transparent flex items-center justify-center p-4 md:p-8 font-sans antialiased text-white relative selection:bg-[#2997ff]/25">
       <motion.div 
         initial={{ opacity: 0, y: 24, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -54,18 +54,18 @@ export default function TranslationSim() {
           }} 
         />
         
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-[#38BDF8]/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-[#2997ff]/[0.02] blur-[120px] pointer-events-none" />
 
         <header className="flex justify-between items-start z-10 relative">
           <div>
-            <h1 className="text-2xl md:text-3xl font-black tracking-tight text-white uppercase italic">Translation</h1>
+            <h1 className="text-xl md:text-2xl font-semibold tracking-tight text-white">Translation</h1>
           </div>
-          <div className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter border transition-all duration-300 ${
+          <div className={`px-3 py-1 rounded-full text-[10px] font-medium tracking-wide border transition-all duration-300 ${
             status === 'completed' 
-              ? 'bg-emerald-500/10 border-emerald-500/50 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.1)]' 
+              ? 'bg-[#30d158]/10 border-[#30d158]/30 text-[#30d158]' 
               : status === 'translating'
-              ? 'bg-amber-500/10 border-amber-500/50 text-amber-400'
-              : 'bg-neutral-900 border-neutral-800 text-neutral-500'
+              ? 'bg-[#2997ff]/10 border-[#2997ff]/30 text-[#2997ff]'
+              : 'bg-neutral-900/60 border-neutral-800 text-neutral-400'
           }`}>
             {status === 'completed' ? 'Packet Delivered' : status === 'translating' ? 'Processing...' : 'Ready'}
           </div>
@@ -74,10 +74,10 @@ export default function TranslationSim() {
         <div className="space-y-6 z-10 relative">
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <label className="text-[10px] font-bold tracking-[0.25em] uppercase text-neutral-600">Configuration</label>
+              <label className="text-[10px] font-semibold tracking-[0.2em] uppercase text-neutral-500">Configuration</label>
               <button 
                 onClick={resetSimulation}
-                className="text-[10px] font-bold text-neutral-500 hover:text-white transition-colors flex items-center gap-1"
+                className="text-[10px] font-medium text-neutral-500 hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
               >
                 <span className="material-symbols-outlined text-sm">restart_alt</span>
                 Reset
@@ -90,8 +90,8 @@ export default function TranslationSim() {
                     key={p.ip}
                     disabled={status === 'translating'}
                     onClick={() => { setTargetIp(p.ip); resetSimulation(); }}
-                    className={`px-4 py-2 text-[10px] font-bold rounded-lg transition-all ${
-                      targetIp === p.ip ? 'bg-neutral-800 text-white shadow-lg' : 'text-neutral-500 hover:text-neutral-300'
+                    className={`px-4 py-2 text-[10px] font-medium rounded-lg transition-all cursor-pointer ${
+                      targetIp === p.ip ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-400 hover:text-neutral-200'
                     } disabled:opacity-50`}
                   >
                     {p.label}
@@ -104,25 +104,25 @@ export default function TranslationSim() {
                   value={targetIp}
                   disabled={status === 'translating'}
                   onChange={(e) => { setTargetIp(e.target.value); resetSimulation(); }}
-                  className="bg-black/40 border border-neutral-800 rounded-xl px-4 py-2.5 font-mono text-xs text-white focus:outline-none focus:border-[#38BDF8] focus:ring-1 focus:ring-[#38BDF8]/20 transition-all w-48 placeholder:text-neutral-700"
+                  className="bg-black/40 border border-neutral-800 rounded-xl px-4 py-2.5 font-mono text-xs text-white focus:outline-none focus:border-[#2997ff] focus:ring-1 focus:ring-[#2997ff]/30 transition-all w-48 placeholder:text-neutral-700"
                   placeholder="203.0.113.1"
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[9px] font-mono text-neutral-600 opacity-0 group-focus-within:opacity-100 transition-opacity uppercase">IPv4</span>
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[9px] font-mono text-neutral-500 opacity-0 group-focus-within:opacity-100 transition-opacity uppercase">IPv4</span>
               </div>
             </div>
           </div>
           <button
             onClick={handleTranslate}
             disabled={status === 'translating'}
-            className={`group relative overflow-hidden w-full py-4 rounded-2xl font-black text-[11px] uppercase tracking-[0.25em] transition-all active:scale-[0.99] ${
+            className={`group relative overflow-hidden w-full py-4 rounded-2xl font-semibold text-xs tracking-wider uppercase transition-all active:scale-[0.99] cursor-pointer ${
               status === 'translating'
-                ? 'bg-neutral-900 text-neutral-700 cursor-not-allowed border border-neutral-800'
-                : 'bg-white text-black hover:bg-[#38BDF8] hover:shadow-[0_0_20px_rgba(56,189,248,0.2)]'
+                ? 'bg-neutral-900 text-neutral-600 cursor-not-allowed border border-neutral-800'
+                : 'bg-white text-black hover:bg-neutral-200 shadow-sm'
             }`}
           >
             {status === 'translating' ? (
               <span className="flex items-center justify-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-ping" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2997ff] animate-ping" />
                 Translating Payload
               </span>
             ) : (
@@ -139,7 +139,7 @@ export default function TranslationSim() {
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: '100%' }}
-                  className="absolute inset-0 bg-gradient-to-r from-[#38BDF8] to-[#38BDF8]/20 rounded-full"
+                  className="absolute inset-0 bg-gradient-to-r from-[#2997ff] to-[#2997ff]/20 rounded-full"
                 />
               )}
             </div>
@@ -150,36 +150,35 @@ export default function TranslationSim() {
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: '100%' }}
-                  className="absolute inset-0 bg-gradient-to-r from-[#F59E0B] to-[#F59E0B]/20 rounded-full"
+                  className="absolute inset-0 bg-gradient-to-r from-[#ff9f0a] to-[#ff9f0a]/20 rounded-full"
                 />
               )}
             </div>
           </div>
 
           <div className="flex flex-col items-center gap-4 z-10">
-            <div className="w-16 h-16 rounded-[1.25rem] bg-black border border-neutral-800 flex items-center justify-center shadow-2xl group transition-colors hover:border-neutral-600">
-              <span className="material-symbols-outlined text-[#38BDF8] text-2xl group-hover:scale-110 transition-transform">terminal</span>
+            <div className="w-16 h-16 rounded-[1.25rem] bg-black border border-neutral-800 flex items-center justify-center shadow-lg group transition-colors hover:border-neutral-600">
+              <span className="material-symbols-outlined text-[#2997ff] text-2xl group-hover:scale-105 transition-transform">terminal</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-[8px] font-black tracking-[0.25em] uppercase text-neutral-600 mb-0.5">Origin</span>
-              <span className="text-[9px] font-bold text-[#38BDF8]">IPv6 Node</span>
+              <span className="text-[8px] font-semibold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">Origin</span>
+              <span className="text-[9px] font-medium text-[#2997ff]">IPv6 Node</span>
             </div>
           </div>
 
           <div className="relative flex items-center justify-center z-10">
             <motion.div 
               animate={phase === 'nat' ? { 
-                scale: [1, 1.05, 1], 
-                borderColor: ['#262626', '#38BDF8', '#262626'],
-                boxShadow: ['0 0 0px rgba(56,189,248,0)', '0 0 30px rgba(56,189,248,0.15)', '0 0 0px rgba(56,189,248,0)']
+                scale: [1, 1.03, 1], 
+                borderColor: ['#262626', '#2997ff', '#262626'],
               } : {}}
-              className="w-28 h-28 bg-black rounded-[2rem] border border-neutral-800 flex flex-col items-center justify-center shadow-2xl relative"
+              className="w-28 h-28 bg-black rounded-[2rem] border border-neutral-800 flex flex-col items-center justify-center shadow-xl relative"
             >
-              <div className="absolute inset-0 bg-[#38BDF8]/2 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className={`material-symbols-outlined text-4xl mb-1 ${phase === 'nat' ? 'text-[#38BDF8] animate-spin' : 'text-neutral-700'}`} style={{ animationDuration: '3s' }}>
+              <div className="absolute inset-0 bg-[#2997ff]/[0.02] rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className={`material-symbols-outlined text-4xl mb-1 ${phase === 'nat' ? 'text-[#2997ff] animate-spin' : 'text-neutral-500'}`} style={{ animationDuration: '3s' }}>
                 hub
               </span>
-              <span className="text-[8px] font-black tracking-widest uppercase text-neutral-500">NAT64 GW</span>
+              <span className="text-[8px] font-semibold tracking-wider uppercase text-neutral-400">NAT64 Gateway</span>
             </motion.div>
 
             <AnimatePresence mode="wait">
@@ -190,11 +189,11 @@ export default function TranslationSim() {
                   animate={{ x: -25, opacity: 1, scale: 1 }}
                   exit={{ x: 20, opacity: 0, scale: 0.8 }}
                   transition={{ duration: 1, ease: "anticipate" }}
-                  className="absolute bg-white px-3 py-1.5 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.2)] z-20 border border-neutral-200"
+                  className="absolute bg-white px-3 py-1.5 rounded-lg shadow-md z-20 border border-neutral-200"
                 >
                   <div className="flex flex-col items-center">
-                    <span className="text-[7px] font-black text-black uppercase tracking-tighter opacity-40">Packet</span>
-                    <span className="font-mono text-[9px] font-black text-black whitespace-nowrap leading-none">IPv6 HDR</span>
+                    <span className="text-[7px] font-medium text-black uppercase tracking-tight opacity-40">Packet</span>
+                    <span className="font-mono text-[9px] font-bold text-black whitespace-nowrap leading-none">IPv6 Header</span>
                   </div>
                 </motion.div>
               )}
@@ -205,11 +204,11 @@ export default function TranslationSim() {
                   animate={{ x: 165, opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.1 }}
                   transition={{ duration: 1, ease: "circOut" }}
-                  className="absolute bg-[#F59E0B] px-3 py-1.5 rounded-lg shadow-[0_0_20px_rgba(245,158,11,0.3)] z-20"
+                  className="absolute bg-[#ff9f0a] px-3 py-1.5 rounded-lg shadow-md z-20 border border-[#ff9f0a]/80"
                 >
                   <div className="flex flex-col items-center">
-                    <span className="text-[7px] font-black text-black uppercase tracking-tighter opacity-60">Packet</span>
-                    <span className="font-mono text-[9px] font-black text-black whitespace-nowrap leading-none">IPv4 HDR</span>
+                    <span className="text-[7px] font-medium text-black uppercase tracking-tight opacity-60">Packet</span>
+                    <span className="font-mono text-[9px] font-bold text-black whitespace-nowrap leading-none">IPv4 Header</span>
                   </div>
                 </motion.div>
               )}
@@ -219,19 +218,19 @@ export default function TranslationSim() {
           <div className="flex flex-col items-center gap-4 z-10">
             <motion.div 
               animate={status === 'completed' ? { 
-                scale: [1, 1.1, 1],
-                borderColor: ['#262626', '#10B981', '#262626'],
-                backgroundColor: ['#000000', '#064E3B', '#000000']
+                scale: [1, 1.05, 1],
+                borderColor: ['#262626', '#30d158', '#262626'],
+                backgroundColor: ['#000000', 'rgba(48,209,88,0.08)', '#000000']
               } : {}}
-              className="w-16 h-16 rounded-[1.25rem] bg-black border border-neutral-800 flex items-center justify-center shadow-2xl transition-all duration-500"
+              className="w-16 h-16 rounded-[1.25rem] bg-black border border-neutral-800 flex items-center justify-center shadow-lg transition-all duration-500"
             >
-              <span className={`material-symbols-outlined text-2xl transition-colors duration-500 ${status === 'completed' ? 'text-[#10B981]' : 'text-[#F59E0B]'}`}>
+              <span className={`material-symbols-outlined text-2xl transition-colors duration-500 ${status === 'completed' ? 'text-[#30d158]' : 'text-[#ff9f0a]'}`}>
                 {status === 'completed' ? 'verified' : 'dns'}
               </span>
             </motion.div>
             <div className="flex flex-col items-center">
-              <span className="text-[8px] font-black tracking-[0.25em] uppercase text-neutral-600 mb-0.5">Target</span>
-              <span className={`text-[9px] font-mono font-bold transition-colors ${status === 'completed' ? 'text-emerald-400' : 'text-[#F59E0B]'}`}>
+              <span className="text-[8px] font-semibold tracking-[0.2em] uppercase text-neutral-500 mb-0.5">Target</span>
+              <span className={`text-[9px] font-mono font-medium transition-colors ${status === 'completed' ? 'text-[#30d158]' : 'text-[#ff9f0a]'}`}>
                 {targetIp}
               </span>
             </div>

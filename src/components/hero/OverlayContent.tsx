@@ -8,37 +8,40 @@ interface OverlayContentProps {
 }
 
 export function OverlayContent({ progress }: OverlayContentProps) {
-  const opacity = useTransform(progress, [0.7, 0.85], [0, 1]);
-  const scale = useTransform(progress, [0.7, 0.85], [0.9, 1]);
+  const opacity = useTransform(progress, [0.68, 0.84], [0, 1]);
+  const scale = useTransform(progress, [0.68, 0.84], [0.94, 1]);
 
   return (
-    <div className="sticky top-0 h-screen h-[100dvh] flex items-center justify-center pointer-events-none">
+    <div className="sticky top-0 h-screen h-[100svh] flex items-center justify-center pointer-events-none px-4">
       <motion.div
         style={{ opacity, scale }}
-        className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-8 pb-20 pointer-events-auto"
+        className="flex flex-col items-center justify-center text-center max-w-xl mx-auto space-y-6 pb-12 sm:pb-16 pointer-events-none"
       >
-        <div className="space-y-6">
-          <h2 className="text-5xl md:text-7xl font-serif text-[#fde047] leading-tight italic">
+        <div className="space-y-4">
+          <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#2997ff] font-medium block">
+            Next Generation Fabric
+          </span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-white leading-tight">
             We Switched <br /> to IPv6
           </h2>
 
-          <p className="text-xl text-[#fde047]/80 font-serif leading-relaxed italic max-w-lg mx-auto">
-            We switched to IPv6 — providing 340 undecillion addresses. Way too much space for every device on Earth and beyond.
+          <p className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-md mx-auto">
+            Providing 340 undecillion addresses. Limitless address space for every device on Earth and beyond.
           </p>
         </div>
 
-        <div className="font-mono text-xs sm:text-sm tracking-widest text-[#fde047] bg-[#fde047]/5 border border-[#fde047]/20 px-6 py-3 rounded-lg">
+        <div className="font-mono text-xs tracking-wider text-[#2997ff] bg-[#2997ff]/10 border border-[#2997ff]/25 px-5 py-2.5 rounded-full shadow-sm">
           IPv6 Header: 40 Bytes (320 bits)
         </div>
 
-        <div className="grid grid-cols-2 gap-6 w-full">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full pt-1">
           {[
             { label: 'Address Space', value: '3.4 × 10³⁸' },
-            { label: 'Capacity', value: '2^128' },
+            { label: 'Capacity', value: '2¹²⁸' },
           ].map((stat, i) => (
-            <div key={i} className="p-6 bg-[#fde047]/5 border border-[#fde047]/20 backdrop-blur-md rounded-lg">
-              <div className="text-[10px] text-[#fde047]/70 font-mono uppercase mb-1 tracking-widest">{stat.label}</div>
-              <div className="text-3xl sm:text-4xl font-black text-[#fde047]">{stat.value}</div>
+            <div key={i} className="p-4 sm:p-5 bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl">
+              <div className="text-[9px] sm:text-[10px] text-neutral-400 font-mono uppercase mb-1 tracking-wider">{stat.label}</div>
+              <div className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">{stat.value}</div>
             </div>
           ))}
         </div>

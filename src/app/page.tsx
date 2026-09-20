@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#000000] text-zinc-100 selection:bg-[#38BDF8]/30">
+    <div className="relative min-h-screen bg-[#000000] text-zinc-100 selection:bg-[#2997ff]/25">
       <div id="hero-section" className="relative z-10">
         <HeroApp />
       </div>
@@ -42,13 +42,13 @@ export default function Home() {
           <ScrollReveal>
             <div
               onClick={() => setActiveTest('pre')}
-              className="w-full p-6 sm:p-8 rounded-[2rem] border border-neutral-800 bg-[#161617] hover:border-[#38BDF8]/50 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group shadow-2xl"
+              className="w-full p-6 sm:p-8 rounded-[2rem] border border-neutral-800 bg-[#161617] hover:border-[#2997ff]/40 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group shadow-2xl"
             >
               <div className="space-y-1.5">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#38BDF8] font-medium">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#2997ff] font-medium">
                   Phase 1 &bull; Baseline Assessment
                 </span>
-                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white group-hover:text-[#38BDF8] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white group-hover:text-white transition-colors">
                   Pre-Test
                 </h3>
                 <p className="text-sm text-zinc-400 max-w-lg leading-relaxed">
@@ -61,7 +61,7 @@ export default function Home() {
                   e.stopPropagation();
                   setActiveTest('pre');
                 }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-[#38BDF8] hover:text-black active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-zinc-200 hover:text-black active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
               >
                 <span>Take Pre-Test</span>
                 <ChevronRight className="w-4 h-4" />
@@ -72,7 +72,7 @@ export default function Home() {
 
         <section id="simulation" className="scroll-mt-20 flex flex-col gap-8 items-center">
           <ScrollReveal className="max-w-7xl mx-auto px-6 pt-4 pb-2 text-center space-y-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#38BDF8] block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#2997ff] block">
               Interactive Lab
             </span>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
@@ -91,13 +91,13 @@ export default function Home() {
           <ScrollReveal>
             <div
               onClick={() => setActiveTest('post')}
-              className="w-full p-6 sm:p-8 rounded-[2rem] border border-neutral-800 bg-[#161617] hover:border-[#22C55E]/50 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group shadow-2xl"
+              className="w-full p-6 sm:p-8 rounded-[2rem] border border-neutral-800 bg-[#161617] hover:border-[#2997ff]/40 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-5 cursor-pointer group shadow-2xl"
             >
               <div className="space-y-1.5">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#22C55E] font-medium">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#2997ff] font-medium">
                   Phase 2 &bull; Verification Assessment
                 </span>
-                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white group-hover:text-[#22C55E] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white group-hover:text-white transition-colors">
                   Post-Test
                 </h3>
                 <p className="text-sm text-zinc-400 max-w-lg leading-relaxed">
@@ -110,7 +110,7 @@ export default function Home() {
                   e.stopPropagation();
                   setActiveTest('post');
                 }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-[#22C55E] hover:text-black active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs sm:text-sm font-medium hover:bg-zinc-200 hover:text-black active:scale-95 transition-all shadow-sm shrink-0 self-start sm:self-auto"
               >
                 <span>Take Post-Test</span>
                 <ChevronRight className="w-4 h-4" />
@@ -120,7 +120,7 @@ export default function Home() {
         </div>
 
         <ScrollReveal className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-24 flex flex-col items-center justify-center text-center">
-          <div className="w-10 h-10 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 flex items-center justify-center mb-3 text-[#22C55E]">
+          <div className="w-10 h-10 rounded-full bg-[#30d158]/10 border border-[#30d158]/25 flex items-center justify-center mb-3 text-[#30d158]">
             <Check className="w-4 h-4" />
           </div>
           <p className="text-sm font-medium text-zinc-400 tracking-tight">

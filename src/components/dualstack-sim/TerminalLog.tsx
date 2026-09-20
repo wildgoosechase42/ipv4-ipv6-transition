@@ -29,8 +29,8 @@ export const TerminalLog: React.FC<Props> = ({ logs }) => {
           <span className="text-[10px] font-bold text-neutral-500 tracking-[0.2em] uppercase">Diagnostic Console</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-1 h-1 rounded-full bg-blue-500 animate-pulse"></div>
-          <span className="text-[9px] font-mono text-neutral-600 font-bold tracking-widest">SYSTEM_READY</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-[#30d158]"></div>
+          <span className="text-[9px] font-mono text-neutral-500 font-medium tracking-wider">Ready</span>
         </div>
       </div>
       <div 
@@ -42,7 +42,7 @@ export const TerminalLog: React.FC<Props> = ({ logs }) => {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="h-full flex items-center justify-center text-neutral-700 italic font-sans"
+              className="h-full flex items-center justify-center text-neutral-600 italic font-sans"
             >
               Waiting for network sequence initiation...
             </motion.div>
@@ -57,10 +57,10 @@ export const TerminalLog: React.FC<Props> = ({ logs }) => {
                 >
                   <span className="text-neutral-700 w-4 select-none tabular-nums text-[10px]">{i + 1}</span>
                   <span className={`
-                    ${log.includes('active') || log.includes('flowing') ? 'text-white font-bold' : 
-                    log.includes('IPv6 preferred') ? 'text-blue-400' :
-                    log.includes('IPv6 selected') ? 'text-blue-400' : 
-                    log.includes('IPv4 selected') ? 'text-amber-500' :
+                    ${log.includes('active') || log.includes('flowing') ? 'text-white font-medium' : 
+                    log.includes('IPv6 preferred') ? 'text-[#2997ff]' :
+                    log.includes('IPv6 selected') ? 'text-[#2997ff]' : 
+                    log.includes('IPv4 selected') ? 'text-[#ff9f0a]' :
                     log.includes('DNS Query') ? 'text-neutral-400' : 
                     'text-neutral-500'}
                   `}>
