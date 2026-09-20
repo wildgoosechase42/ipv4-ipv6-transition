@@ -40,25 +40,17 @@ export default function Home() {
           <ScrollReveal>
             <div className="border border-neutral-800 bg-[#161617] rounded-[2rem] p-6 sm:p-8 space-y-4 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#2997ff]/5 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16" />
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center text-[#2997ff]">
                   <Target className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#2997ff] font-medium">
-                  Experiment Objective
-                </span>
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white mb-3">
+                <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
                   Aim
                 </h2>
-                <div className="p-4 sm:p-5 rounded-2xl border-l-4 border-[#2997ff] bg-black/40 text-base sm:text-lg text-white font-medium leading-relaxed tracking-tight">
-                  To understand different IPv4 to IPv6 Transition Mechanisms
-                </div>
               </div>
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                Investigate and analyze the key coexistence and migration strategies—Dual-Stack architectures, IPv6-in-IPv4 Tunneling, and NAT64/DNS64 Translation—that enable modern IPv6 adoption across legacy network infrastructure.
-              </p>
+              <div className="p-4 sm:p-5 rounded-2xl border-l-4 border-[#2997ff] bg-black/40 text-base sm:text-lg text-white font-medium leading-relaxed tracking-tight">
+                To understand different IPv4 to IPv6 Transition Mechanisms
+              </div>
             </div>
           </ScrollReveal>
         </section>
