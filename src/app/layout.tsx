@@ -15,6 +15,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Transitioning from IPv4 to IPv6 — Educational Reference & Simulation Platform",
   description: "A technical reference guide and interactive simulation platform detailing IPv4 address exhaustion, Dual-Stack (RFC 4213), Tunneling (Protocol 41), and NAT64/DNS64 translation.",
+  icons: {
+    icon: [
+      { url: "/somaiya-logo.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/somaiya-logo.png",
+    apple: "/somaiya-logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`}>
       <head>
+        <link rel="icon" type="image/png" href="/somaiya-logo.png" />
+        <link rel="shortcut icon" href="/somaiya-logo.png" />
+        <link rel="apple-touch-icon" href="/somaiya-logo.png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

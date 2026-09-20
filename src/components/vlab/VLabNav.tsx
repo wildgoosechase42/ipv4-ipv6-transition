@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Terminal, ArrowUp } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowUp } from 'lucide-react';
 
 interface VLabNavProps {
   onOpenTest?: (type: 'pre' | 'post') => void;
@@ -122,8 +123,14 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
     <header className="sticky top-0 z-40 w-full bg-black/80 backdrop-blur-2xl border-b border-neutral-800 text-white transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4 sm:gap-8">
         <div className="flex items-center gap-3.5 shrink-0">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white/[0.05] border border-neutral-800 flex items-center justify-center text-zinc-300 shadow-sm">
-            <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white border border-neutral-700/80 flex items-center justify-center p-1 shadow-sm overflow-hidden shrink-0">
+            <Image
+              src="/somaiya-logo.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <span className="text-[11px] sm:text-xs tracking-wider uppercase text-[#2997ff] font-medium block">
