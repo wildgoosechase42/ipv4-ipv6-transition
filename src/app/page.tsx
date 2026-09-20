@@ -164,7 +164,7 @@ export default function Home() {
             <Check className="w-4 h-4" />
           </div>
           <p className="text-sm font-medium text-zinc-400 tracking-tight">
-            Experiment Complete. IPv6 Transition Mechanisms Mastered.
+            Experiment Complete.
           </p>
         </ScrollReveal>
       </main>
