@@ -31,7 +31,7 @@ export default function TunnelingSim() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 relative z-10">
           <div>
-            <h1 className="text-xl md:text-2xl font-semibold tracking-tight text-white">Tunneling Lab</h1>
+            <h1 className="text-xl md:text-2xl font-semibold tracking-tight text-white">Tunneling</h1>
           </div>
           
           <div className="flex items-center gap-2 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">

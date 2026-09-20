@@ -8,7 +8,7 @@ import DualStackSim from '@/components/dualstack-sim/DualStackSim';
 import TunnelingSim from '@/components/tunneling-sim/TunnelingSim';
 import TranslationSim from '@/components/translation-sim/TranslationSim';
 import { TestModal } from '@/components/vlab/TestModal';
-import { ScrollReveal, ScrollParagraph } from '@/components/vlab/ScrollReveal';
+import { ScrollReveal } from '@/components/vlab/ScrollReveal';
 import { ChevronRight, Check } from 'lucide-react';
 
 export default function Home() {
@@ -78,9 +78,6 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
               Transition Mechanism Simulations
             </h2>
-            <ScrollParagraph delay={0.1} className="text-sm text-zinc-400 max-w-xl mx-auto">
-              Inspect protocol headers, traffic flows, and encapsulation logic in real time across the three foundational migration mechanisms.
-            </ScrollParagraph>
           </ScrollReveal>
           <DualStackSim />
           <TunnelingSim />
