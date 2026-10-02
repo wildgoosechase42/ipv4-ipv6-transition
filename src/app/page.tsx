@@ -4,9 +4,7 @@ import React, { useEffect, useState } from 'react';
 import HeroApp from '@/components/hero/App';
 import { VLabNav } from '@/components/vlab/VLabNav';
 import { VLabTheory } from '@/components/vlab/VLabTheory';
-import DualStackSim from '@/components/dualstack-sim/DualStackSim';
-import TunnelingSim from '@/components/tunneling-sim/TunnelingSim';
-import TranslationSim from '@/components/translation-sim/TranslationSim';
+import { NetworkLabHub } from '@/components/network-lab/NetworkLabHub';
 import { TestModal } from '@/components/vlab/TestModal';
 import { ScrollReveal } from '@/components/vlab/ScrollReveal';
 import { ChevronRight, Check, Target, CheckCircle2 } from 'lucide-react';
@@ -98,9 +96,9 @@ export default function Home() {
               Transition Mechanism Simulations
             </h2>
           </ScrollReveal>
-          <DualStackSim />
-          <TunnelingSim />
-          <TranslationSim />
+          <div className="w-full max-w-7xl px-2 sm:px-6">
+            <NetworkLabHub />
+          </div>
         </section>
 
         <div id="post-test" className="scroll-mt-24 max-w-4xl mx-auto px-4 sm:px-6 py-12 pb-16">
