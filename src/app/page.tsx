@@ -157,7 +157,7 @@ export default function Home() {
           </ScrollReveal>
         </section>
 
-        <ScrollReveal className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-56 sm:pb-72 flex flex-col items-center justify-center text-center">
+        <ScrollReveal className="max-w-4xl mx-auto px-4 sm:px-6 pt-4 pb-16 flex flex-col items-center justify-center text-center">
           <div className="w-10 h-10 rounded-full bg-[#30d158]/10 border border-[#30d158]/25 flex items-center justify-center mb-3 text-[#30d158]">
             <Check className="w-4 h-4" />
           </div>
@@ -166,6 +166,30 @@ export default function Home() {
           </p>
         </ScrollReveal>
       </main>
+
+      {/* Developer & Student Attribution Footer Bar */}
+      <footer className="relative z-20 w-full border-t border-white/[0.1] bg-[#0c0c0e] py-6 sm:py-7">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+          {/* Left: Developer Name */}
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#ff9f0a] shadow-[0_0_8px_#ff9f0a] shrink-0" />
+            <span className="text-xs sm:text-sm font-mono text-neutral-400 tracking-wider">
+              DEVELOPER <span className="text-neutral-500 mx-0.5">•</span>{' '}
+              <strong className="text-white font-bold font-mono">Ninad Nikte</strong>
+            </span>
+          </div>
+
+          {/* Right: Roll Number Capsule */}
+          <div className="flex items-center gap-2.5">
+            <span className="text-xs font-mono tracking-widest text-neutral-400 font-semibold uppercase">
+              ROLL NO:
+            </span>
+            <div className="px-4 py-1 rounded-full border border-white/20 bg-white/[0.04] text-xs sm:text-sm font-mono font-bold text-[#ff9f0a] shadow-sm tracking-wider">
+              16010425076
+            </div>
+          </div>
+        </div>
+      </footer>
 
       <TestModal
         isOpen={activeTest !== null}
