@@ -71,7 +71,7 @@ This platform bridges theoretical network engineering concepts with hands-on pra
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/ninadnikte/ipv4-ipv6-transition.git
+git clone https://github.com/wildgoosechase42/ipv4-ipv6-transition.git
 
 # Navigate into project directory
 cd ipv4-ipv6-transition
