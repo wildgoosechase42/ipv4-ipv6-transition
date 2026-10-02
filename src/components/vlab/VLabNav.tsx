@@ -129,11 +129,15 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
   return (
     <header className="sticky top-0 z-40 w-full bg-black/80 backdrop-blur-2xl border-b border-neutral-800 text-white transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4 sm:gap-8">
-        <div className="flex items-center gap-3.5 shrink-0">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white border border-neutral-700/80 flex items-center justify-center p-1 shadow-sm overflow-hidden shrink-0">
+        <div
+          onClick={scrollToTop}
+          className="flex items-center gap-3.5 shrink-0 cursor-pointer group hover:opacity-90 transition-opacity"
+          title="Go to top of page"
+        >
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white border border-neutral-700/80 flex items-center justify-center p-1 shadow-sm overflow-hidden shrink-0 group-hover:scale-105 transition-transform">
             <Image
               src="/somaiya-logo.png"
-              alt="Logo"
+              alt="Somaiya Logo"
               width={40}
               height={40}
               className="w-full h-full object-contain"

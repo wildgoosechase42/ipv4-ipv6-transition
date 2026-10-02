@@ -172,7 +172,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
           {/* Left: Developer Name */}
           <div className="flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-[#ff9f0a] shadow-[0_0_8px_#ff9f0a] shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-[#2997ff] shadow-[0_0_8px_#2997ff] shrink-0" />
             <span className="text-xs sm:text-sm font-mono text-neutral-400 tracking-wider">
               DEVELOPER <span className="text-neutral-500 mx-0.5">•</span>{' '}
               <strong className="text-white font-bold font-mono">Ninad Nikte</strong>
@@ -184,7 +184,7 @@ export default function Home() {
             <span className="text-xs font-mono tracking-widest text-neutral-400 font-semibold uppercase">
               ROLL NO:
             </span>
-            <div className="px-4 py-1 rounded-full border border-white/20 bg-white/[0.04] text-xs sm:text-sm font-mono font-bold text-[#ff9f0a] shadow-sm tracking-wider">
+            <div className="px-4 py-1 rounded-full border border-[#2997ff]/30 bg-[#2997ff]/10 text-xs sm:text-sm font-mono font-bold text-[#2997ff] shadow-[0_0_12px_rgba(41,151,255,0.2)] tracking-wider">
               16010425076
             </div>
           </div>
