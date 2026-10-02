@@ -35,6 +35,7 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
         'pre-test',
         'simulation',
         'post-test',
+        'ai-use-case',
         'conclusion',
       ];
       const focalY = 160;
@@ -92,6 +93,7 @@ export function VLabNav({ onOpenTest }: VLabNavProps) {
     { id: 'pre-test', label: 'Pre-Test', href: '#pre-test' },
     { id: 'simulation', label: 'Simulation', href: '#simulation' },
     { id: 'post-test', label: 'Post-Test', href: '#post-test' },
+    { id: 'ai-use-case', label: 'AI Use Case', href: '#ai-use-case' },
     { id: 'conclusion', label: 'Conclusion', href: '#conclusion' },
   ];
 

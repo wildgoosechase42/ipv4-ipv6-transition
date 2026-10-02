@@ -7,6 +7,7 @@ import { VLabTheory } from '@/components/vlab/VLabTheory';
 import { NetworkLabHub } from '@/components/network-lab/NetworkLabHub';
 import { TestModal } from '@/components/vlab/TestModal';
 import { ScrollReveal } from '@/components/vlab/ScrollReveal';
+import { AIUseCase } from '@/components/vlab/AIUseCase';
 import { ChevronRight, Check, Target, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
@@ -132,6 +133,8 @@ export default function Home() {
             </div>
           </ScrollReveal>
         </div>
+
+        <AIUseCase />
 
         <section id="conclusion" className="scroll-mt-24 max-w-4xl mx-auto px-4 sm:px-6 py-8">
           <ScrollReveal>
